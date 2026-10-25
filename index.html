@@ -583,3 +583,114 @@
   </script>
 </body>
 </html>
+￼
+<style>
+  /* 1. นำเข้าฟอนต์ที่ดูนุ่มนวล เป็นมิตร (รองรับภาษาไทย) */
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap');
+
+:root {
+  --bg-soft: #f4f7f6;
+  --card-bg: #ffffff;
+  --primary-pastel: #ffc4d6; /* สีชมพูพาสเทลนุ่มๆ */
+  --accent-soft: #a0c4ff;    /* สีฟ้าพาสเทล */
+  --text-main: #4a5568;
+  --shadow-light: rgba(255, 255, 255, 0.9);
+  --shadow-dark: rgba(163, 177, 198, 0.25);
+}
+
+/* 2. พื้นหลังหลักให้ดูละมุน ไม่แบนราบ */
+body {
+  font-family: 'Prompt', sans-serif;
+  background-color: var(--bg-soft);
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(255, 196, 214, 0.25) 0%, transparent 30%),
+    radial-gradient(circle at 85% 30%, rgba(160, 196, 255, 0.25) 0%, transparent 30%);
+  color: var(--text-main);
+  line-height: 1.7;
+  margin: 0;
+  padding: 20px;
+}
+
+/* 3. คลาสหลักสำหรับ "การ์ด/กล่องข้อความ" ให้บับมีมิติ */
+.bubbly-card {
+  background: var(--card-bg);
+  border-radius: 32px; /* มุมโค้งมนขนาดใหญ่ (Chunky radii) */
+  border: 2px solid rgba(255, 255, 255, 0.7); /* ขอบสีขาวจางๆ เพิ่มความชัด */
+  
+  /* เคล็ดลับ: เงา 4 ชั้น = เงาด้านนอก 2 ชั้น + เงาด้านใน (inset) 2 ชั้น */
+  box-shadow: 
+    8px 8px 20px var(--shadow-dark), 
+    -8px -8px 20px var(--shadow-light),
+    inset 4px 4px 8px rgba(255, 255, 255, 0.8),
+    inset -4px -4px 8px rgba(163, 177, 198, 0.1);
+    
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* เอฟเฟกต์เด้งดึ๋ง */
+}
+
+/* เอฟเฟกต์เมื่อเอาเมาส์ไปชี้: ลอยขึ้นเล็กน้อยและเงาชัดขึ้น */
+.bubbly-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 
+    12px 12px 28px var(--shadow-dark), 
+    -12px -12px 28px var(--shadow-light),
+    inset 4px 4px 8px rgba(255, 255, 255, 0.9),
+    inset -4px -4px 8px rgba(163, 177, 198, 0.15);
+}
+
+/* 4. ปุ่มกดแบบนุ่ม (กดแล้วรู้สึกเหมือนจมลง) */
+.bubbly-button {
+  background: linear-gradient(145deg, #ffd1dc, #ffb6c1);
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  border: none;
+  border-radius: 50px; /* รูปทรงแคปซูล */
+  padding: 14px 36px;
+  font-family: 'Prompt', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 
+    6px 6px 12px rgba(255, 182, 193, 0.4),
+    -6px -6px 12px rgba(255, 255, 255, 0.9),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.6);
+  transition: all 0.2s ease;
+}
+
+.bubbly-button:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+}
+
+/* เมื่อกดปุ่ม (Active) จะดูเหมือนถูกกดจมลงไป */
+.bubbly-button:active {
+  transform: translateY(2px);
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.6);
+}
+
+/* 5. รูปภาพหรือไอคอนให้มีกรอบนุ่ม */
+.bubbly-image {
+  border-radius: 24px;
+  border: 4px solid white;
+  box-shadow: 6px 6px 16px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease;
+}
+.bubbly-image:hover {
+  transform: rotate(-2deg) scale(1.03);
+}
+
+/* 6. อนิเมชันลอยตัวเบาๆ (Optional) สำหรับองค์ประกอบที่ต้องการให้ดูมีชีวิต */
+@keyframes soft-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+.floating {
+  animation: soft-float 4s ease-in-out infinite;
+}
+   </style>
+   
